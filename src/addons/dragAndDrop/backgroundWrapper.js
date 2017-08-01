@@ -93,6 +93,7 @@ DraggableBackgroundWrapper.propTypes = propTypes;
 
 DraggableBackgroundWrapper.contextTypes = {
   onEventDrop: PropTypes.func,
+  onEventResize: PropTypes.func,
   dragDropManager: PropTypes.object,
   startAccessor: accessor,
   endAccessor: accessor
@@ -109,6 +110,23 @@ function createWrapper(type) {
 
 
   const dropTarget = {
+    hover: function hover(_, monitor, _ref) {
+
+      var props = _ref.props,
+          context = _ref.context;
+
+      var item = monitor.getItem();
+      var itemType = monitor.getItemType();
+      var value = props.value;
+      var onEventResize = context.onEventResize;
+
+      if ((!window.reactBigCalendarResizerValue || window.reactBigCalendarResizerValue.toString() !== value.toString())) {
+        window.reactBigCalendarResizerValue = value; // store value to not trigger event each time
+
+        onEventResize(itemType, item, value); // calback
+      }
+    },
+
     drop(_, monitor, { props, context }) {
       const event = monitor.getItem();
       const { value } = props
@@ -123,7 +141,7 @@ function createWrapper(type) {
     }
   };
 
-  return DropTarget(['event'], dropTarget, collectTarget)(DraggableBackgroundWrapper);
+  return DropTarget(['event', 'event-resize'], dropTarget, collectTarget)(DraggableBackgroundWrapper);
 }
 
 export const DateCellWrapper = createWrapper('dateCellWrapper');
