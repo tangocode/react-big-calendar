@@ -166,6 +166,7 @@ class MonthView extends React.Component {
 
     return (
       <DateContentRow
+        date={this.props.date}
         key={weekIdx}
         ref={weekIdx === 0 ? 'slotRow' : undefined}
         container={this.getContainer}
