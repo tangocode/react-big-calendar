@@ -100,15 +100,14 @@ class DateContentRow extends React.Component {
 
   renderHeadingCell = (date, index) => {
     let { renderHeader, range } = this.props;
-    console.log('HeadingCell date:', date);
-    console.log('HeadingCell:', dates.eq(date, this.props.now, 'day'));
+
     return renderHeader({
       date,
       key: `header_${index}`,
       style: segStyle(1, range.length),
       className: cn(
         'rbc-date-cell',
-        dates.eq(date, this.props.now, 'day') && 'rbc-now', // FIXME use props.now
+        dates.eq(date, this.props.now, 'day') && 'rbc-now'
       )
     })
   }
