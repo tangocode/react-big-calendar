@@ -56,8 +56,8 @@ class BackgroundCells extends React.Component {
       this._teardownSelectable();
   }
 
-  render(){
-    let currentDate = this.props.date;
+  render() {
+    let currentDate = this.props.date ? this.props.date : new Date();
     let daysInMonth = this.getDaysInMonth((currentDate.getMonth() + 1), currentDate.getFullYear());
     let isOffRange;
     let firstOfRange;
