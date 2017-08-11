@@ -44,14 +44,32 @@ const EndPoint = styled.span`
     cursor: col-resize;
 `;
 
-function CustomMonthEvent ({ event }) {
+function CustomMonthEvent ({ event, isStart, isEnd }) {
+  console.log('***isStart: ', isStart);
+  console.log('***isEnd: ', isEnd);
+
   return (
     <EventWrapper>
-      <StartPoint>o</StartPoint>
+      {
+        isStart ?
+          <StartPoint>o</StartPoint>
+        :
+        <div></div>
+      }
       <div onClick={event => console.log('**Event: ', event)}>
-        {/* <span>{event.title}</span> */}
+        {
+          isStart?
+          <span>{event.title}</span>
+          :
+          <span></span>
+        }
       </div>
-      <EndPoint onClick={event => console.log('** Click endpoint')}>o</EndPoint>
+      {
+        isEnd ?
+          <EndPoint onClick={event => console.log('** Click endpoint')}>o</EndPoint>
+        :
+        <div></div>
+      }
     </EventWrapper>
   );
 }

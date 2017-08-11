@@ -3,14 +3,14 @@ export default [
     'title': 'All Day Event',
     'id': '001',
     'allDay': true,
-    'start': new Date(2015, 3, 0),
-    'end': new Date(2015, 3, 1)
+    'start': new Date(2015, 3, 5),
+    'end': new Date(2015, 3, 10)
   },
   {
     'title': 'Long Event',
     'id': '002',
     'start': new Date(2015, 3, 7),
-    'end': new Date(2015, 3, 10)
+    'end': new Date(2015, 3, 23)
   },
 
   {
@@ -27,12 +27,12 @@ export default [
     'end': new Date(2016, 10, 13, 0, 0, 0)
   },
 
-  {
-    'title': 'Some Event',
-    'id': '005',
-    'start': new Date(2015, 3, 9, 0, 0, 0),
-    'end': new Date(2015, 3, 9, 0, 0, 0)
-  },
+  // {
+  //   'title': 'Some Event',
+  //   'id': '005',
+  //   'start': new Date(2015, 3, 9, 0, 0, 0),
+  //   'end': new Date(2015, 3, 9, 0, 0, 0)
+  // },
   {
     'title': 'Conference',
     'id': '006',
@@ -73,10 +73,10 @@ export default [
     'start':new Date(2015, 3, 12, 20, 0, 0, 0),
     'end': new Date(2015, 3, 12, 21, 0, 0, 0)
   },
-  {
-    'title': 'Birthday Party',
-    'id': '012',
-    'start':new Date(2015, 3, 13, 7, 0, 0),
-    'end': new Date(2015, 3, 13, 10, 30, 0)
-  }
+  // {
+  //   'title': 'Birthday Party',
+  //   'id': '012',
+  //   'start':new Date(2015, 3, 13, 7, 0, 0),
+  //   'end': new Date(2015, 3, 13, 10, 30, 0)
+  // }
 ]

@@ -159,6 +159,8 @@ class MonthView extends React.Component {
       now,
     } = this.props
 
+    // console.log('** Week: ', week);
+
     const { needLimitMeasure, rowLimit } = this.state
 
     events = eventsForWeek(events, week[0], week[week.length - 1], this.props)

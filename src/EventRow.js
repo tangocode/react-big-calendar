@@ -16,6 +16,7 @@ class EventRow extends React.Component {
     let lastEnd = 1
 
     return (
+      // This 'rbc-now' contains several rbc-row-segment (Several horizontal segments on segment per event on a row)
       <div className="rbc-row">
         {segments.reduce((row, { event, left, right, span }, li) => {
           let key = '_lvl_' + li

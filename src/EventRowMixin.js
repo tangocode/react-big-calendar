@@ -38,7 +38,14 @@ export default {
       , startAccessor, endAccessor, titleAccessor
       , allDayAccessor, eventComponent
       , eventWrapperComponent
-      , onSelect } = props;
+      , onSelect, week } = props;
+
+    // console.log('********** WEEK OF A ROW: ', week);
+    // console.log('** EventRowMixin event: ', event);
+    // console.log('** startAccesor: ', startAccessor);
+    // console.log('** endAccessor: ', endAccessor);
+    // console.log('** slotStart: ', start);
+    // console.log('** slotEnd: ', end);
 
     return (
       <EventCell
@@ -54,6 +61,7 @@ export default {
         slotStart={start}
         slotEnd={end}
         eventComponent={eventComponent}
+        week={week}
       />
     )
   },

@@ -166,6 +166,10 @@ class DateContentRow extends React.Component {
     let { levels, extra } = eventLevels(segments, Math.max(maxRows - 1, 1));
     while (levels.length < minRows ) levels.push([])
 
+    // console.log('** Range: ', range);
+    // console.log('** Events: ', events);
+    // console.log('** Levels: ', levels);
+
     return (
       <div className={className}>
         <BackgroundCells
@@ -179,6 +183,7 @@ class DateContentRow extends React.Component {
           cellWrapperComponent={dateCellWrapper}
         />
 
+        {/* rbc-row-content corresponds to a WEEK's contents*/}
         <div className='rbc-row-content'>
           {renderHeader && (
             <div className='rbc-row' ref={this.createHeadingRef}>
@@ -197,6 +202,7 @@ class DateContentRow extends React.Component {
               eventWrapperComponent={eventWrapperComponent}
               startAccessor={startAccessor}
               endAccessor={endAccessor}
+              week={range}
             />
           )}
           {!!extra.length && (
