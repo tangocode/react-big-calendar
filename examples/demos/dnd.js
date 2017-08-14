@@ -45,9 +45,6 @@ const EndPoint = styled.span`
 `;
 
 function CustomMonthEvent ({ event, isStart, isEnd }) {
-  console.log('***isStart: ', isStart);
-  console.log('***isEnd: ', isEnd);
-
   return (
     <EventWrapper>
       {
@@ -56,7 +53,7 @@ function CustomMonthEvent ({ event, isStart, isEnd }) {
         :
         <div></div>
       }
-      <div onClick={event => console.log('**Event: ', event)}>
+      <div onClick={event => console.log('event: ', event)}>
         {
           isStart?
           <span>{event.title}</span>
@@ -66,7 +63,7 @@ function CustomMonthEvent ({ event, isStart, isEnd }) {
       </div>
       {
         isEnd ?
-          <EndPoint onClick={event => console.log('** Click endpoint')}>o</EndPoint>
+          <EndPoint onClick={event => console.log('click endpoint')}>o</EndPoint>
         :
         <div></div>
       }

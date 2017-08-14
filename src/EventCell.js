@@ -48,13 +48,6 @@ class EventCell extends React.Component {
     if (eventPropGetter)
       var { style, className: xClassName } = eventPropGetter(event, start, end, selected);
 
-    // console.log('***** EVENTCELL ****: ', event);
-    // console.log('*** WEEK: ', week);
-    // console.log(' *start slot: ', start);
-    // console.log(' *end slot: ', end);
-    // console.log(' *event start: ', event.start);
-    // console.log(' *event end: ', event.end);
-
     let isStart = false;
     let isEnd = false;
 
@@ -63,8 +56,6 @@ class EventCell extends React.Component {
       const endDates = week.filter(dateItem => dateItem.getTime() === event.end.getTime());
       isStart = startDates.length > 0;
       isEnd = endDates.length > 0;
-      console.log(' ** SHOULD SHOW START END-POINT: ', isStart);
-      console.log(' ** SHOULD SHOW END END-POINT: ', isEnd);
     }
 
     return (

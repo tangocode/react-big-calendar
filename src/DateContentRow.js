@@ -166,10 +166,6 @@ class DateContentRow extends React.Component {
     let { levels, extra } = eventLevels(segments, Math.max(maxRows - 1, 1));
     while (levels.length < minRows ) levels.push([])
 
-    // console.log('** Range: ', range);
-    // console.log('** Events: ', events);
-    // console.log('** Levels: ', levels);
-
     return (
       <div className={className}>
         <BackgroundCells
