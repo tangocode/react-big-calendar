@@ -8,6 +8,70 @@ import * as _ from 'lodash';
 
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.less';
 
+import styled from 'styled-components';
+
+const EventWrapper = styled.div`
+    position: relative;
+    background-color: #77BC1F;
+    border: solid 1px #77BC1F;
+    height: 13.5px;
+    z-index: 10;
+    width: 90%;
+    padding-left: 20px;
+`;
+
+const StartPoint = styled.span`
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    width: 5px;
+    height: 5px;
+    font-size: 20px;
+    color: blue;
+    z-index: 20;
+    cursor: col-resize;
+`;
+
+const EndPoint = styled.span`
+    position: absolute;
+    right: -5px;
+    top: -10px;
+    width: 5px;
+    height: 5px;
+    font-size: 20px;
+    color: blue;
+    z-index: 20;
+    cursor: col-resize;
+`;
+
+function CustomMonthEvent ({ event, isStart, isEnd }) {
+  return (
+    <EventWrapper>
+      {
+        isStart ?
+          <StartPoint>o</StartPoint>
+        :
+        <div></div>
+      }
+      <div onClick={event => console.log('event: ', event)}>
+        {
+          isStart?
+          <span>{event.title}</span>
+          :
+          <span></span>
+        }
+      </div>
+      {
+        isEnd ?
+          <EndPoint onClick={event => console.log('click endpoint')}>o</EndPoint>
+        :
+        <div></div>
+      }
+    </EventWrapper>
+  );
+}
+
+
 const DragAndDropCalendar = withDragAndDrop(BigCalendar);
 
 const ResizeDirection = {
@@ -84,7 +148,12 @@ class Dnd extends React.Component {
         selectable
         events={this.state.events}
         onEventDrop={this.moveEvent}
-        defaultView='week'
+        defaultView='month'
+        components={{
+          month: {
+            event: CustomMonthEvent
+          }
+        }}
         defaultDate={new Date(2015, 3, 12)}
         onEventResize={this.onEventResize}
       />

@@ -35,6 +35,7 @@ class EventCell extends React.Component {
       , onSelect
       , eventComponent: Event
       , eventWrapperComponent: EventWrapper
+      , week
       , ...props } = this.props;
 
     let title = get(event, titleAccessor)
@@ -46,6 +47,16 @@ class EventCell extends React.Component {
 
     if (eventPropGetter)
       var { style, className: xClassName } = eventPropGetter(event, start, end, selected);
+
+    let isStart = false;
+    let isEnd = false;
+
+    if (week) {
+      const startDates = week.filter(dateItem => dateItem.getTime() === event.start.getTime());
+      const endDates = week.filter(dateItem => dateItem.getTime() === event.end.getTime());
+      isStart = startDates.length > 0;
+      isEnd = endDates.length > 0;
+    }
 
     return (
       <EventWrapper event={event}>
@@ -61,7 +72,7 @@ class EventCell extends React.Component {
         >
           <div className='rbc-event-content' title={title}>
             { Event
-              ? <Event event={event} title={title}/>
+              ? <Event event={event} title={title} isStart={isStart} isEnd={isEnd}/>
               : title
             }
           </div>

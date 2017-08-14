@@ -1,6 +1,6 @@
 {
   "name": "tangocode-react-big-calendar",
-  "version": "0.27.9",
+  "version": "0.28.0",
   "description": "Calendar! with events",
   "author": "Jason Quense <monastic.panic@gmail.com>",
   "repository": "intljusticemission/react-big-calendar",
@@ -84,6 +84,7 @@
     "prop-types": "^15.5.8",
     "react-overlays": "^0.7.0",
     "react-prop-types": "^0.4.0",
+    "styled-components": "^2.1.2",
     "uncontrollable": "^3.3.1 || ^4.0.0",
     "warning": "^2.0.0"
   }
