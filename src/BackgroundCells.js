@@ -35,6 +35,8 @@ class BackgroundCells extends React.Component {
     this.state = {
       selecting: false
     };
+
+    this.getDaysInMonth = this.getDaysInMonth.bind(this);
   }
 
   componentDidMount(){
@@ -54,9 +56,12 @@ class BackgroundCells extends React.Component {
       this._teardownSelectable();
   }
 
-  render(){
-    let currentDate = this.props.date;
+  render() {
+    let currentDate = this.props.date ? this.props.date : new Date();
+    let daysInMonth = this.getDaysInMonth((currentDate.getMonth() + 1), currentDate.getFullYear());
     let isOffRange;
+    let firstOfRange;
+    let lastOfRange;
     let { range, cellWrapperComponent: Wrapper } = this.props;
     let { selecting, startIdx, endIdx } = this.state;
 
@@ -65,6 +70,19 @@ class BackgroundCells extends React.Component {
         {range.map((date, index) => {
           isOffRange = dates.month(date) !== dates.month(currentDate)
           let selected =  selecting && index >= startIdx && index <= endIdx;
+
+          if (!isOffRange && dates.date(date) === 1) {
+            firstOfRange = true;
+          } else {
+            firstOfRange = false;
+          }
+
+          if (!isOffRange && dates.date(date) === daysInMonth) {
+            lastOfRange = true;
+          } else {
+            lastOfRange = false;
+          }
+
           return (
             <Wrapper
               key={index}
@@ -74,7 +92,9 @@ class BackgroundCells extends React.Component {
               <div
                 style={segStyle(1, range.length)}
                 className={cn(
-                  'rbc-day-bg',
+                  !isOffRange  && 'rbc-day-bg',
+                  firstOfRange && 'first-of-range',
+                  lastOfRange && 'last-of-range',
                   selected && 'rbc-selected-cell',
                   isOffRange && 'rbc-day-bg-offrange',
                   dates.isToday(date) && 'rbc-today',
@@ -85,6 +105,10 @@ class BackgroundCells extends React.Component {
         })}
       </div>
     )
+  }
+
+  getDaysInMonth(month, year) {
+    return new Date(year, month, 0).getDate()
   }
 
   _selectable(){

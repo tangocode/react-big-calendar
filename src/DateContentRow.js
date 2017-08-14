@@ -107,7 +107,7 @@ class DateContentRow extends React.Component {
       style: segStyle(1, range.length),
       className: cn(
         'rbc-date-cell',
-        dates.eq(date, this.props.now, 'day') && 'rbc-now', // FIXME use props.now
+        dates.eq(date, this.props.now, 'day') && 'rbc-now'
       )
     })
   }

@@ -464,6 +464,7 @@ class Calendar extends React.Component {
    views: [views.MONTH, views.WEEK, views.DAY, views.AGENDA],
    date: now,
    step: 30,
+   now,
 
    drilldownView: views.DAY,
 
