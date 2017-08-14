@@ -13,6 +13,7 @@ import Selection, { getBoundsForNode, isEvent } from './Selection';
 class BackgroundCells extends React.Component {
 
   static propTypes = {
+    date: PropTypes.instanceOf(Date),
     cellWrapperComponent: elementType,
     container: PropTypes.func,
     selectable: PropTypes.oneOf([true, false, 'ignoreEvents']),
@@ -54,12 +55,15 @@ class BackgroundCells extends React.Component {
   }
 
   render(){
+    let currentDate = this.props.date;
+    let isOffRange;
     let { range, cellWrapperComponent: Wrapper } = this.props;
     let { selecting, startIdx, endIdx } = this.state;
 
     return (
       <div className='rbc-row-bg'>
         {range.map((date, index) => {
+          isOffRange = dates.month(date) !== dates.month(currentDate)
           let selected =  selecting && index >= startIdx && index <= endIdx;
           return (
             <Wrapper
@@ -72,6 +76,7 @@ class BackgroundCells extends React.Component {
                 className={cn(
                   'rbc-day-bg',
                   selected && 'rbc-selected-cell',
+                  isOffRange && 'rbc-day-bg-offrange',
                   dates.isToday(date) && 'rbc-today',
                 )}
               />
