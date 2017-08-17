@@ -305,6 +305,8 @@ class MonthView extends React.Component {
     if (popup) {
       let position = getPosition(cell, findDOMNode(this))
 
+      console.log('** handleShowMore: ', position);
+
       this.setState({
         overlay: { date, events, position },
       })

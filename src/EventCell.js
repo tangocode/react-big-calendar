@@ -52,8 +52,11 @@ class EventCell extends React.Component {
     let isEnd = false;
 
     if (week) {
-      const startDates = week.filter(dateItem => dateItem.getTime() === event.start.getTime());
-      const endDates = week.filter(dateItem => dateItem.getTime() === event.end.getTime());
+      const startDates = week.filter(
+        dateItem => (
+          (dateItem.getDate() === event.start.getDate()) && (dateItem.getMonth() === event.start.getMonth())));
+      const endDates = week.filter(
+        dateItem => ((dateItem.getDate() === event.end.getDate()) && (dateItem.getMonth() === event.end.getMonth())));
       isStart = startDates.length > 0;
       isEnd = endDates.length > 0;
     }

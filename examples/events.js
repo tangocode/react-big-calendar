@@ -37,21 +37,21 @@ export default [
     'title': 'Conference',
     'id': '006',
     'start': new Date(2015, 3, 11),
-    'end': new Date(2015, 3, 13),
+    'end': new Date(2015, 3, 18),
     desc: 'Big conference for important people'
   },
   {
     'title': 'Meeting',
     'id': '007',
     'start': new Date(2015, 3, 12, 10, 30, 0, 0),
-    'end': new Date(2015, 3, 12, 12, 30, 0, 0),
+    'end': new Date(2015, 3, 18, 12, 30, 0, 0),
     desc: 'Pre-meeting meeting, to prepare for the meeting'
   },
   {
     'title': 'Lunch',
     'id': '008',
     'start':new Date(2015, 3, 12, 12, 0, 0, 0),
-    'end': new Date(2015, 3, 12, 13, 0, 0, 0),
+    'end': new Date(2015, 3, 18, 13, 0, 0, 0),
     desc: 'Power lunch'
   },
   {

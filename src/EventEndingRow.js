@@ -103,6 +103,9 @@ class EventEndingRow extends React.Component {
   }
 
   showMore(slot, e) {
+    console.log('** showMore slot: ', slot, ' event: ', e);
+    console.log('** ClientX: ', e.clientX);
+    console.log('** ClientY: ', e.clientY);
     e.preventDefault()
     this.props.onShowMore(slot)
   }

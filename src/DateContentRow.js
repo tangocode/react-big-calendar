@@ -65,7 +65,10 @@ class DateContentRow extends React.Component {
 
   handleShowMore = (slot) => {
     const { range, onShowMore } = this.props;
-    let row = qsa(findDOMNode(this), '.rbc-row-bg')[0]
+    let row = qsa(findDOMNode(this), '.rbc-row-bg')[0] //Get the first row inside of the rbc-month-row div     
+    
+    console.log('** handleShowMore Row: ', row);
+    console.log('** Segments: ', this.segments);
 
     let cell;
     if (row) cell = row.children[slot-1]
