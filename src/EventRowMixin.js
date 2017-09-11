@@ -38,7 +38,7 @@ export default {
       , startAccessor, endAccessor, titleAccessor
       , allDayAccessor, eventComponent
       , eventWrapperComponent
-      , onSelect, week } = props;
+      , onSelect, week, container } = props;
 
     return (
       <EventCell
@@ -55,6 +55,7 @@ export default {
         slotEnd={end}
         eventComponent={eventComponent}
         week={week}
+        container={container()}
       />
     )
   },

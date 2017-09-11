@@ -19,7 +19,10 @@ let propTypes = {
 
   eventComponent: elementType,
   eventWrapperComponent: elementType.isRequired,
-  onSelect: PropTypes.func
+  onSelect: PropTypes.func,
+
+  week: PropTypes.array,
+  container: PropTypes.object
 }
 
 class EventCell extends React.Component {
@@ -36,6 +39,7 @@ class EventCell extends React.Component {
       , eventComponent: Event
       , eventWrapperComponent: EventWrapper
       , week
+      , container
       , ...props } = this.props;
 
     let title = get(event, titleAccessor)
@@ -75,7 +79,7 @@ class EventCell extends React.Component {
         >
           <div className='rbc-event-content' title={title}>
             { Event
-              ? <Event event={event} title={title} isStart={isStart} isEnd={isEnd}/>
+              ? <Event event={event} title={title} isStart={isStart} isEnd={isEnd} week={week} container={container} />
               : title
             }
           </div>
